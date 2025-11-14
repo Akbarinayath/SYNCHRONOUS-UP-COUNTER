@@ -27,41 +27,30 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
-1.Initialize the shift register to a known state (e.g., all zeros).
 
-2.Input a bit serially into the shift register.
-
-3.Shift the contents of the register one position to the right (or left).
-
-4.Output the shifted bit from the last stage of the register.
-
-5.Repeat steps 2-4 for each bit you want to input and shift.
+/* write all the steps invloved */
 
 **PROGRAM**
-```
-module exp11(out,clk,rstn);
- input clk, rstn;
-output reg [3:0] out; 
-always @ (posedge clk) begin  
-    if (! rstn)  
-      out <= 0;  
-    else  
-      out <= out + 1;  
-  end  
+module DE1(out,clk,rstn);
+input clk,rstn;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+	if(!rstn)
+		out<=0;
+	else
+		out <= out+1;
+end
 endmodule
 
-```
 **RTL LOGIC UP COUNTER**
-![image](https://github.com/user-attachments/assets/8951d10f-c2ce-4535-8739-9bd6716ed954)
+<img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/ad19cdd5-6036-4429-9c86-e8ab8ef706db" />
 
 
-**TIMING DIAGRAM FOR IP COUNTER**
-![image](https://github.com/user-attachments/assets/a1990a2f-1e5f-4c88-99e6-9a19d0a90625)
-
+**TIMING<img width="1920" height="1080" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/e049fc5c-d36c-4e81-9d10-ad58e254d0bd" />
+ DIAGRAM FOR IP COUNTER**
 
 **TRUTH TABLE**
-![image](https://github.com/user-attachments/assets/4409da28-2aad-4a52-ae5c-c2d7c6d18632)
 
 **RESULTS**
-
-Hence a 4 bit synchronous up counter is implemented correctly and program code is successfully executed.
+Thus,implement 4 bit synchronous up counter and validate functionality.
